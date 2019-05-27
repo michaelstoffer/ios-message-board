@@ -17,6 +17,7 @@ class MessageThreadsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +64,26 @@ class MessageThreadsTableViewController: UITableViewController {
         }
     }
 
+    func configureRefreshControl () {
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        self.messageThreadController.fetchMessageThreads { (error) in
+            if let error = error {
+                NSLog("Error fetching our Message Threads: \(error)")
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
 
     // MARK: - Navigation
 

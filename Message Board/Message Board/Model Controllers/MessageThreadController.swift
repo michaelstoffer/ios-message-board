@@ -40,6 +40,7 @@ class MessageThreadController {
             }
             
             self.messageThreads.append(messageThread)
+            self.messageThreads = self.messageThreads.sorted(by: { $0.title < $1.title })
             completion(nil)
         }.resume()
     }
@@ -72,6 +73,7 @@ class MessageThreadController {
             }
             
             messageThread.messages.append(message)
+            messageThread.messages = messageThread.messages.sorted(by: { $0.timestamp < $1.timestamp })
             completion(nil)
         }.resume()
     }
@@ -93,7 +95,7 @@ class MessageThreadController {
             do {
                 let messageThreadDictionaries = try jsonDecoder.decode([String: MessageThread].self, from: data)
                 let messageThreads = Array(messageThreadDictionaries.values)
-                self.messageThreads = messageThreads
+                self.messageThreads = messageThreads.sorted(by: { $0.title < $1.title })
                 completion(nil)
             } catch {
                 NSLog("Unable to decode data into object of type [MessageThread]: \(error)")
