@@ -108,6 +108,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="K2K-M7-b8t" kind="show" identifier="ToDetailMessage" id="rz6-ea-lbC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -197,4 +200,7 @@
             <point key="canvasLocation" x="388" y="155"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rz6-ea-lbC"/>
+    </inferredMetricsTieBreakers>
 </document>
