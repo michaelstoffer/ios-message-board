@@ -27,6 +27,9 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="createThread:" destination="SpK-La-Fmf" eventType="editingDidEndOnExit" id="OQZ-ot-XmV"/>
+                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,6 +68,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="λ Message Board" id="6CK-PU-taK"/>
+                    <connections>
+                        <outlet property="threadNameTextField" destination="Ee8-zn-RqW" id="JcR-ZN-ja3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYB-en-4Xf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
