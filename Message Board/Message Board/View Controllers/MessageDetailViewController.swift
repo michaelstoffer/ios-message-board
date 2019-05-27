@@ -16,6 +16,16 @@ class MessageDetailViewController: UIViewController {
     
     var messageThread: MessageThread?
     var messageThreadController: MessageThreadController?
+    var message: MessageThread.Message? {
+        didSet {
+            self.updateViews()
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.updateViews()
+    }
         
     // MARK: - @IBActions and Methods
     @IBAction func sendMessage(_ sender: UIBarButtonItem) {
@@ -24,7 +34,16 @@ class MessageDetailViewController: UIViewController {
             let messageThread = self.messageThread else { return }
         
         self.messageThreadController!.createMessage(messageThread: messageThread, withText: text, withSender: sender) { (_) in
-            self.navigationController?.popViewController(animated: true)
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
+    }
+    
+    private func updateViews() {
+        guard let message = self.message, isViewLoaded else { return }
+        
+        self.nameTextField.text = message.sender
+        self.messageTextView.text = message.text
     }
 }
