@@ -19,6 +19,19 @@ class MessageThreadsTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.messageThreadController.fetchMessageThreads { (error) in
+            if let error = error {
+                NSLog("Error fetching our Message Threads: \(error)")
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     // MARK: - TableView DataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.messageThreadController.messageThreads.count
