@@ -19,6 +19,10 @@ class MessageThread: Equatable, Codable {
         self.messages = messages
     }
     
+    static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
+        return lhs.identifier == rhs.identifier && lhs.title == rhs.title
+    }
+    
     struct Message: Equatable, Codable {
         var text: String
         var sender: String
@@ -29,9 +33,5 @@ class MessageThread: Equatable, Codable {
             self.sender = sender
             self.timestamp = timestamp
         }
-    }
-    
-    static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-        return lhs.identifier == rhs.identifier
     }
 }

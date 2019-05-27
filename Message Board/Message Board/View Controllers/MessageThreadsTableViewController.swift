@@ -44,6 +44,7 @@ class MessageThreadsTableViewController: UITableViewController {
             }
             
             DispatchQueue.main.async {
+                self.threadNameTextField.text = nil
                 self.tableView.reloadData()
             }
         }

@@ -9,7 +9,7 @@
 import Foundation
 
 class MessageThreadController {
-    private (set) var messageThreads: [MessageThread] = []
+    var messageThreads: [MessageThread] = []
     
     static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
     
@@ -18,7 +18,6 @@ class MessageThreadController {
         
         var url = MessageThreadController.baseURL
         url.appendPathComponent(messageThread.identifier)
-        url.appendPathComponent("messages")
         url.appendPathExtension("json")
 
         var request = URLRequest(url: url)
@@ -50,6 +49,7 @@ class MessageThreadController {
         
         var url = MessageThreadController.baseURL
         url.appendPathComponent(messageThread.identifier)
+        url.appendPathComponent("messages")
         url.appendPathExtension("json")
         
         var request = URLRequest(url: url)
