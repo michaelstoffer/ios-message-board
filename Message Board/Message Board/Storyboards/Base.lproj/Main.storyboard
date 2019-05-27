@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -109,20 +110,75 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Xkp-l4-N3n">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="M0v-l6-raG"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="M0v-l6-raG">
+                            <connections>
+                                <segue destination="K2K-M7-b8t" kind="show" identifier="ToAddMessage" id="lkB-sm-fPZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzT-C4-WZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2007" y="155"/>
         </scene>
+        <!--New Message-->
+        <scene sceneID="rBk-OT-bYn">
+            <objects>
+                <viewController id="K2K-M7-b8t" customClass="MessageDetailViewController" customModule="Message_Board" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YNM-zL-ulg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0L-4g-xzq">
+                                <rect key="frame" x="16" y="156" width="382" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SdY-bQ-fuM">
+                                <rect key="frame" x="16" y="194" width="382" height="220"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="klu-cT-uRQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SdY-bQ-fuM" firstAttribute="leading" secondItem="EoJ-g6-GK0" secondAttribute="leading" constant="16" id="18G-PR-d64"/>
+                            <constraint firstItem="b0L-4g-xzq" firstAttribute="top" secondItem="EoJ-g6-GK0" secondAttribute="top" constant="16" id="2Ar-rc-kK2"/>
+                            <constraint firstItem="b0L-4g-xzq" firstAttribute="leading" secondItem="EoJ-g6-GK0" secondAttribute="leading" constant="16" id="4gb-bc-3Op"/>
+                            <constraint firstItem="EoJ-g6-GK0" firstAttribute="trailing" secondItem="SdY-bQ-fuM" secondAttribute="trailing" constant="16" id="CUX-px-Qoe"/>
+                            <constraint firstItem="EoJ-g6-GK0" firstAttribute="trailing" secondItem="b0L-4g-xzq" secondAttribute="trailing" constant="16" id="TNa-E3-z5c"/>
+                            <constraint firstItem="SdY-bQ-fuM" firstAttribute="top" secondItem="b0L-4g-xzq" secondAttribute="bottom" constant="8" id="b9X-6F-xPE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EoJ-g6-GK0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Message" id="4Hh-Oo-tC5">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="Vqr-71-G7g">
+                            <connections>
+                                <action selector="sendMessage:" destination="K2K-M7-b8t" id="mAT-eo-1oA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="messageTextView" destination="SdY-bQ-fuM" id="ajL-hQ-FLS"/>
+                        <outlet property="nameTextField" destination="b0L-4g-xzq" id="jEy-5Z-lm1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gbJ-uU-ZmC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2814" y="155"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="qua-cK-YtQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sU3-lu-u1U" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XR3-1Q-Xcq">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="XR3-1Q-Xcq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

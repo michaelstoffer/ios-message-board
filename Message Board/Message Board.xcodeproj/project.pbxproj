@@ -13,6 +13,7 @@
 		4C53ACD4229C6A5500E0B2EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C53ACD2229C6A5500E0B2EC /* LaunchScreen.storyboard */; };
 		4C53ACE1229C6BA700E0B2EC /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C53ACE0229C6BA700E0B2EC /* MessageThreadsTableViewController.swift */; };
 		4C53ACE3229C6DA600E0B2EC /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C53ACE2229C6DA600E0B2EC /* MessageThreadDetailTableViewController.swift */; };
+		4C53ACE5229C703A00E0B2EC /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C53ACE4229C703A00E0B2EC /* MessageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4C53ACD5229C6A5500E0B2EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C53ACE0229C6BA700E0B2EC /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
 		4C53ACE2229C6DA600E0B2EC /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
+		4C53ACE4229C703A00E0B2EC /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			children = (
 				4C53ACE0229C6BA700E0B2EC /* MessageThreadsTableViewController.swift */,
 				4C53ACE2229C6DA600E0B2EC /* MessageThreadDetailTableViewController.swift */,
+				4C53ACE4229C703A00E0B2EC /* MessageDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C53ACCA229C6A5400E0B2EC /* AppDelegate.swift in Sources */,
+				4C53ACE5229C703A00E0B2EC /* MessageDetailViewController.swift in Sources */,
 				4C53ACE3229C6DA600E0B2EC /* MessageThreadDetailTableViewController.swift in Sources */,
 				4C53ACE1229C6BA700E0B2EC /* MessageThreadsTableViewController.swift in Sources */,
 			);
